@@ -9,5 +9,7 @@ Route::get('/', function () {
 });
 
 Route::resource('alunos', \App\Http\Controllers\AlunoController::class);
+Route::resource('categorias', \App\Http\Controllers\CategoriaController::class);
+
 Route::put('/alunos/{aluno}', [AlunoController::class, 'update'])->name('alunos.update');
 Route::get('/turmas/{cursoId}', [AlunoController::class, 'getTurmasByCurso'])->name('turmas.byCurso');

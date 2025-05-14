@@ -9,7 +9,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('alunos.index') }}">Alunos</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('categorias.index') }}">Categorias</a>
+                </li>
             </ul>
         </div>
     </div>
