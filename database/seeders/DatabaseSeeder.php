@@ -15,7 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(NivelSeeder::class); 
         $this->call(CursoSeeder::class); 
-        $this->call(TurmaSeeder::class); 
+        $this->call(CategoriaSeeder::class);
+        $this->call(DocumentoSeeder::class);
+        $this->call(TurmaSeeder::class);
+        $this->call(AlunoSeeder::class);
+        $this->call(ComprovanteSeeder::class);
+        $this->call(DeclaracaoSeeder::class);
    
 
 
