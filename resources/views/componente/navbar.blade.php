@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('niveis.index') }}">Niveis</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('turmas.index') }}">Turmas</a>
+                </li>
             </ul>
         </div>
     </div>

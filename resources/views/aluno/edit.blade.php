@@ -52,9 +52,7 @@
             <select class="form-select" id="curso_id" name="curso_id" required>
                 <option value="">Selecione um curso</option>
                 @foreach ($cursos as $curso)
-                    <option value="{{ $curso->id }}" {{ old('curso_id', $aluno->curso_id) == $curso->id ? 'selected' : '' }}>
-                        {{ $curso->nome }}
-                    </option>
+                    <option value="{{ $curso->id }}">{{ $curso->nome }}</option>
                 @endforeach
             </select>
             @error('curso_id')
@@ -66,11 +64,6 @@
             <label for="turma_id" class="form-label">Turma</label>
             <select class="form-select" id="turma_id" name="turma_id" required>
                 <option value="">Selecione uma turma</option>
-                @foreach ($turmas as $turma)
-                    <option value="{{ $turma->id }}" {{ old('turma_id', $aluno->turma_id) == $turma->id ? 'selected' : '' }}>
-                        {{ $turma->ano }} - {{ $turma->curso->nome }}
-                    </option>
-                @endforeach
             </select>
             @error('turma_id')
                 <div class="text-danger">{{ $message }}</div>
@@ -81,4 +74,27 @@
         <a href="{{ route('alunos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
+
+<script>
+    document.getElementById('curso_id').addEventListener('change', function () {
+        const cursoId = this.value;
+        const turmaSelect = document.getElementById('turma_id');
+
+        turmaSelect.innerHTML = '<option value="">Selecione uma turma</option>';
+
+        if (cursoId) {
+            fetch(`/turmas/get/${cursoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(turma => {
+                        const option = document.createElement('option');
+                        option.value = turma.id;
+                        option.textContent = turma.ano;
+                        turmaSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar turmas:', error));
+        }
+    });
+</script>
 @endsection

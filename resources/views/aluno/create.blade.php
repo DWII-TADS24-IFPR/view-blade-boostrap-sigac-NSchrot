@@ -80,7 +80,7 @@
         turmaSelect.innerHTML = '<option value="">Selecione uma turma</option>';
 
         if (cursoId) {
-            fetch(`/turmas/${cursoId}`)
+            fetch(`/turmas/get/${cursoId}`)
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(turma => {

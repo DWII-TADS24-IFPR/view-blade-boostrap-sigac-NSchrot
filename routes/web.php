@@ -23,6 +23,7 @@ Route::resource('documentos', \App\Http\Controllers\DocumentoController::class);
 // Ainda não sei o motivo disso ヽ(#`Д´)ﾉ
 Route::resource('niveis', \App\Http\Controllers\NivelController::class)->parameters(['niveis' => 'nivel']);
 
+Route::resource('turmas', \App\Http\Controllers\TurmaController::class);
 
 Route::put('/alunos/{aluno}', [AlunoController::class, 'update'])->name('alunos.update');
-Route::get('/turmas/{cursoId}', [AlunoController::class, 'getTurmasByCurso'])->name('turmas.byCurso');
+Route::get('/turmas/get/{cursoId}', [AlunoController::class, 'getTurmasByCurso'])->name('turmas.byCurso');
