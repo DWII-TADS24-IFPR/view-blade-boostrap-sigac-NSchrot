@@ -21,6 +21,9 @@
                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('declaracoes.index') }}">Declarações</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('documentos.index') }}">Documentos</a>
+                </li>
             </ul>
         </div>
     </div>

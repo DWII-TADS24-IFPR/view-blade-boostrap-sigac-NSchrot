@@ -17,5 +17,6 @@ Route::resource('cursos', \App\Http\Controllers\CursoController::class);
 // Não sei o motivo disso ヽ(#`Д´)ﾉ
 Route::resource('declaracoes', \App\Http\Controllers\DeclaracaoController::class)->parameters(['declaracoes' => 'declaracao']);
 
+Route::resource('documentos', \App\Http\Controllers\DocumentoController::class);
 Route::put('/alunos/{aluno}', [AlunoController::class, 'update'])->name('alunos.update');
 Route::get('/turmas/{cursoId}', [AlunoController::class, 'getTurmasByCurso'])->name('turmas.byCurso');
