@@ -18,5 +18,11 @@ Route::resource('cursos', \App\Http\Controllers\CursoController::class);
 Route::resource('declaracoes', \App\Http\Controllers\DeclaracaoController::class)->parameters(['declaracoes' => 'declaracao']);
 
 Route::resource('documentos', \App\Http\Controllers\DocumentoController::class);
+
+// Aconteceu o mesmo com o Niveis, o laravel estava puxando a URL 'Niveis/nive' em vez de 'Niveis/nivel'
+// Ainda não sei o motivo disso ヽ(#`Д´)ﾉ
+Route::resource('niveis', \App\Http\Controllers\NivelController::class)->parameters(['niveis' => 'nivel']);
+
+
 Route::put('/alunos/{aluno}', [AlunoController::class, 'update'])->name('alunos.update');
 Route::get('/turmas/{cursoId}', [AlunoController::class, 'getTurmasByCurso'])->name('turmas.byCurso');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nivel;
+use App\Http\Requests\NivelRequest;
 use Illuminate\Http\Request;
 
 class NivelController extends Controller
@@ -12,7 +13,8 @@ class NivelController extends Controller
      */
     public function index()
     {
-        //
+        $niveis = Nivel::all();
+        return view('nivel.index', compact('niveis'));
     }
 
     /**
@@ -20,15 +22,16 @@ class NivelController extends Controller
      */
     public function create()
     {
-        //
+        return view('nivel.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(NivelRequest $request)
     {
-        //
+        Nivel::create($request->validated());
+        return redirect()->route('niveis.index')->with('success', 'Nível criado com sucesso!');
     }
 
     /**
@@ -36,7 +39,7 @@ class NivelController extends Controller
      */
     public function show(Nivel $nivel)
     {
-        //
+        return view('nivel.show', compact('nivel'));
     }
 
     /**
@@ -44,15 +47,16 @@ class NivelController extends Controller
      */
     public function edit(Nivel $nivel)
     {
-        //
+        return view('nivel.edit', compact('nivel'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Nivel $nivel)
+    public function update(NivelRequest $request, Nivel $nivel)
     {
-        //
+        $nivel->update($request->validated());
+        return redirect()->route('niveis.index')->with('success', 'Nível atualizado com sucesso!');
     }
 
     /**
@@ -60,6 +64,7 @@ class NivelController extends Controller
      */
     public function destroy(Nivel $nivel)
     {
-        //
+        $nivel->delete();
+        return redirect()->route('niveis.index')->with('success', 'Nível excluído com sucesso!');
     }
 }
