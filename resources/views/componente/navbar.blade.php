@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('comprovantes.index') }}">Comprovantes</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cursos.index') }}">Cursos</a>
+                </li>
             </ul>
         </div>
     </div>
